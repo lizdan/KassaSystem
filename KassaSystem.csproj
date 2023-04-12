@@ -85,10 +85,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="WarehouseControl.resx">
       <DependentUpon>WarehouseControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Book.datasource" />
+    <None Include="Properties\DataSources\Game.datasource" />
+    <None Include="Properties\DataSources\Movie.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,6 +105,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information-icon-6055.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information-icon-60551.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information-icon-60552.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

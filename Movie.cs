@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/**
+     * Class that represent a movie, with essential properties and an override for ToString().
+     * 
+     * @author Liza Danielsson, lizadani101.
+     * */
 
 namespace KassaSystem
 {
@@ -23,15 +23,21 @@ namespace KassaSystem
             Price = price;
             Format = format;
             LengthAsInt = length;
-            Length = LengthAsInt.ToString() + " min";
+            if(LengthAsInt == 0) { Length = ""; }
+            else { Length = LengthAsInt.ToString() + " min"; }
             StockCount = stockCount;
         }
 
-        public void setLength(int length) { LengthAsInt = length; }
 
-        public int getStockCount() { return StockCount; }
+        //To set length when changing information of a movie.
+        public void setLength(int length) 
+        { 
+            LengthAsInt = length;
+            if (LengthAsInt == 0) { Length = ""; }
+            else { Length = LengthAsInt.ToString() + " min"; }
+        }
 
-        public void setStockCount(int stockCount) { StockCount = stockCount; }
+        public int getLength() { return LengthAsInt; }
 
         public override string ToString()
         {

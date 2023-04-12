@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/**
+     * Class that represent a game, with essential properties and an override for ToString().
+     * 
+     * @author Liza Danielsson, lizadani101.
+     * */
 
 namespace KassaSystem
 {
@@ -23,9 +23,6 @@ namespace KassaSystem
             StockCount = stockCount;
         }
 
-        public int getStockCount() { return StockCount; }
-
-        public void setStockCount(int stockCount) { StockCount = stockCount; }
 
         public override string ToString()
         {
