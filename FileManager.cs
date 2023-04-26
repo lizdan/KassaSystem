@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using static System.Windows.Forms.LinkLabel;
 
 namespace KassaSystem
@@ -166,6 +168,15 @@ namespace KassaSystem
             lines.AddRange(movieLines);
                 //Save list of all lines to file.
             File.WriteAllLines(FilePath, lines);
+        }
+
+        public XmlDocument GetSyncProducts(XmlDocument doc)
+        {
+            WebClient client = new WebClient();
+            var text = client.DownloadString("https://hex.cse.kau.se/~jonavest/csharp-api");
+            doc.LoadXml(text);
+            doc.Save("CentralWarehouseProducts.xml");
+            return doc;
         }
     }
 }

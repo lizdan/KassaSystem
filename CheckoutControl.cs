@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 /**
  * This class represents a user control for handling product checkout. Provides an
@@ -574,6 +576,12 @@ namespace KassaSystem
                     //Set the background color of the cell to lihtgrey.
                 e.CellStyle.BackColor = Color.LightGray;
             }
+        }
+
+        private void SyncBtnCheckView_Click(object sender, EventArgs e)
+        {
+            ProductController.SyncWithHeadWarehouse();
+            dataGridViewCheckout.Refresh();
         }
     }
 }

@@ -661,5 +661,11 @@ namespace KassaSystem
                 e.CellStyle.BackColor = Color.LightGray;
             }
         }
+
+        private void syncBtnWareView_Click(object sender, EventArgs e)
+        {
+            ProductController.SyncWithHeadWarehouse();
+            dataGridViewWarehouse.Refresh();
+        }
     }
 }

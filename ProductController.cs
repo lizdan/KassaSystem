@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Xml;
 
 /**
  * This class manages the data and operations related to all products in the store.
@@ -742,6 +743,74 @@ namespace KassaSystem
         public void SaveToFile()
         {
             FileManager.SaveData(Books, Games, Movies);
+        }
+
+
+        /// <summary>
+        /// Gets an xml document via an instance method in FileManager, loops trough the information/products in the document
+        /// and checks the price and stock count for each product before updating the price and stock count on each product 
+        /// in all three lists of books, games and movies.
+        /// </summary>
+        public void SyncWithHeadWarehouse()
+        {
+                //Create a new xmlDocument.
+            XmlDocument doc = new XmlDocument();
+                //Save information by calling instance method that returns the document with products.
+            doc = FileManager.GetSyncProducts(doc);
+
+                //Save the information inbetween the tag products.
+            XmlNode productsNode = doc.SelectSingleNode("/response/products");
+
+                //Loop through each node/tag in the productsNode/the information between products-tag.
+            foreach (XmlNode product in productsNode)
+            {
+                    //Checks if the tag/node if an element/product.
+                if (product.NodeType == XmlNodeType.Element)
+                {
+                        //Tranform into an product/element insted of node to reach the childelements.
+                    XmlElement productElement = (XmlElement)product;
+
+                        // Get the name, price and stockcount elements from the products childelements.
+                    XmlElement nameElement = productElement["name"];
+                    XmlElement priceElement = productElement["price"];
+                    XmlElement stockElement = productElement["stock"];
+
+                        // Extract the values of the name, price and stockcount elements into strings.
+                    string name = nameElement.InnerText;
+                    string price = priceElement.InnerText;
+                    string stock = stockElement.InnerText;
+
+                    //Loop trough lists of books.
+                    foreach (Book book in Books)
+                    {
+                            //Check if the name from namelement is same as any book name.
+                        if(name.Equals(book.Name, StringComparison.OrdinalIgnoreCase))
+                        {
+                                //If so, set price and stock of the book to the same as from xml doc.
+                            book.Price = int.Parse(price);
+                            book.StockCount = int.Parse(stock);
+                        }
+                    }
+                        //Same with games.
+                    foreach (Game game in Games)
+                    {
+                        if (name.Equals(game.Name, StringComparison.OrdinalIgnoreCase))
+                        {
+                            game.Price = int.Parse(price);
+                            game.StockCount = int.Parse(stock);
+                        }
+                    }
+                        //Same with movies.
+                    foreach (Movie movie in Movies)
+                    {
+                        if (name.Equals(movie.Name, StringComparison.OrdinalIgnoreCase ))
+                        {
+                            movie.Price = int.Parse(price);
+                            movie.StockCount = int.Parse(stock);
+                        }
+                    }
+                }
+            }
         }
     }
 }

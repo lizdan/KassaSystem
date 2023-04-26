@@ -68,6 +68,7 @@
             this.dataGridViewCheckout = new System.Windows.Forms.DataGridView();
             this.splitContGeneral = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.SyncBtnCheckView = new System.Windows.Forms.Button();
             this.cartGroupBx.SuspendLayout();
             this.groupBoxManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCheckout)).BeginInit();
@@ -576,6 +577,7 @@
             // 
             // splitContGeneral.Panel1
             // 
+            this.splitContGeneral.Panel1.Controls.Add(this.SyncBtnCheckView);
             this.splitContGeneral.Panel1.Controls.Add(this.radioBtnMovie);
             this.splitContGeneral.Panel1.Controls.Add(this.OverviewLbl);
             this.splitContGeneral.Panel1.Controls.Add(this.dataGridViewCheckout);
@@ -605,6 +607,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(850, 367);
             this.splitContainer1.SplitterDistance = 331;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // SyncBtnCheckView
+            // 
+            this.SyncBtnCheckView.Location = new System.Drawing.Point(31, 12);
+            this.SyncBtnCheckView.Name = "SyncBtnCheckView";
+            this.SyncBtnCheckView.Size = new System.Drawing.Size(307, 26);
+            this.SyncBtnCheckView.TabIndex = 11;
+            this.SyncBtnCheckView.Text = "Sync with central warehouse";
+            this.SyncBtnCheckView.UseVisualStyleBackColor = true;
+            this.SyncBtnCheckView.Click += new System.EventHandler(this.SyncBtnCheckView_Click);
             // 
             // CheckoutControl
             // 
@@ -675,5 +687,6 @@
         private System.Windows.Forms.TextBox CartAmountTxBx;
         private System.Windows.Forms.Label CartCostLbl;
         private System.Windows.Forms.PictureBox pictureBoxCheckout;
+        private System.Windows.Forms.Button SyncBtnCheckView;
     }
 }

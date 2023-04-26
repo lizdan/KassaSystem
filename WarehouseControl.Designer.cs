@@ -73,6 +73,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.DeliveryLbl = new System.Windows.Forms.Label();
             this.activateDeliveryChBx = new System.Windows.Forms.CheckBox();
+            this.syncBtnWareView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SplitcontainerHorizontal)).BeginInit();
             this.SplitcontainerHorizontal.Panel1.SuspendLayout();
             this.SplitcontainerHorizontal.Panel2.SuspendLayout();
@@ -97,6 +98,7 @@
             // 
             // SplitcontainerHorizontal.Panel1
             // 
+            this.SplitcontainerHorizontal.Panel1.Controls.Add(this.syncBtnWareView);
             this.SplitcontainerHorizontal.Panel1.Controls.Add(this.radioBtnMovie);
             this.SplitcontainerHorizontal.Panel1.Controls.Add(this.OverviewLbl);
             this.SplitcontainerHorizontal.Panel1.Controls.Add(this.dataGridViewWarehouse);
@@ -669,6 +671,16 @@
             this.activateDeliveryChBx.UseVisualStyleBackColor = true;
             this.activateDeliveryChBx.CheckedChanged += new System.EventHandler(this.activateDeliveryChBx_CheckedChanged);
             // 
+            // syncBtnWareView
+            // 
+            this.syncBtnWareView.Location = new System.Drawing.Point(18, 21);
+            this.syncBtnWareView.Name = "syncBtnWareView";
+            this.syncBtnWareView.Size = new System.Drawing.Size(342, 26);
+            this.syncBtnWareView.TabIndex = 16;
+            this.syncBtnWareView.Text = "Sync with central warehouse";
+            this.syncBtnWareView.UseVisualStyleBackColor = true;
+            this.syncBtnWareView.Click += new System.EventHandler(this.syncBtnWareView_Click);
+            // 
             // WarehouseControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -745,5 +757,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox selectAllTxBx;
         private System.Windows.Forms.Button delivClearBtn;
+        private System.Windows.Forms.Button syncBtnWareView;
     }
 }
