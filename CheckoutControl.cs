@@ -578,6 +578,9 @@ namespace KassaSystem
             }
         }
 
+
+
+        //Calls instance method to synchronize price and stock count with the main warehouse from an open API.
         private void SyncBtnCheckView_Click(object sender, EventArgs e)
         {
             ProductController.SyncWithHeadWarehouse();

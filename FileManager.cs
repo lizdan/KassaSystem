@@ -170,13 +170,25 @@ namespace KassaSystem
             File.WriteAllLines(FilePath, lines);
         }
 
+        /// <summary>
+        /// Gets information from an open API and saves the information to an xml document.
+        /// </summary>
+        /// <param name="doc">The xml document sent to method to save information from API to.</param>
+        /// <returns>The xml document with information.</returns>
         public XmlDocument GetSyncProducts(XmlDocument doc)
         {
+                //Create a new instance of webClient.
             WebClient client = new WebClient();
-            var text = client.DownloadString("https://hex.cse.kau.se/~jonavest/csharp-api");
-            doc.LoadXml(text);
-            doc.Save("CentralWarehouseProducts.xml");
-            return doc;
+
+                //Try get the open API, return xml doc with info if success, else return null.
+            try
+            {
+                var text = client.DownloadString("https://hex.cse.kau.se/~jonavest/csharp-api");
+                doc.LoadXml(text);
+                doc.Save("CentralWarehouseProducts.xml");
+                return doc;
+            }
+            catch { return null; }
         }
     }
 }
